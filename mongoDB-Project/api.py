@@ -88,7 +88,7 @@ def city(args):
     args=myParseArgs(args)
     data = []
     city=args['city']
-    result = businessdb.find({"full_address": {$regex: 'Las Vegas'}})
+    result = businessdb.find({"full_address": {'$regex': city},'_id':0})
     count=0
     for r in result:
         if r['city'] == city:
